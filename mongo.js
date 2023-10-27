@@ -19,16 +19,16 @@ const blogSchema = new mongoose.Schema({
     },
     title: {
         type: String,
-        required: true
+        default: ''
     },
     url: {
         type: String,
-        required: true
+        default: ''
     },
     likes: {
-        type: String,
-        required: true
-    },
+        type: Number,
+        default: 0
+    }
 })
 
 const Blog = mongoose.model('Blog', blogSchema)
@@ -39,6 +39,7 @@ const blog = new Blog({
     url: 'Test URL',
     likes: 'Test Likes'
 })
+
 
 blog.find({}).then(result => {
     result.forEach(blog => {
